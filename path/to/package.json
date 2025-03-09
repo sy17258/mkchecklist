@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "test": "jest",
+    "lint": "eslint ."
+  }
+} 
