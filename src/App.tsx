@@ -274,19 +274,6 @@ function App() {
     setSelectedItems(allItems);
   };
 
-  const selectedItemsByCategory = Object.entries(menuCategories).reduce(
-    (acc, [category, items]) => {
-      const selectedInCategory = items.filter((item) =>
-        selectedItems.has(item)
-      );
-      if (selectedInCategory.length > 0) {
-        acc[category] = selectedInCategory;
-      }
-      return acc;
-    },
-    {} as Record<string, string[]>
-  );
-
   const categoriesArray = Object.entries(menuCategories);
 
   return (
