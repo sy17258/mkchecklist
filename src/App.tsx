@@ -295,7 +295,7 @@ function App() {
               display: block !important;
             }
             @page {
-              size: A4 portrait;
+              size: auto;
               margin: 0;
               orphans: 0;
               widows: 0;
@@ -310,6 +310,21 @@ function App() {
             .a4-container, .a4-content {
               page-break-inside: avoid;
               break-inside: avoid;
+              transform: scale(0.95);
+              transform-origin: top center;
+            }
+            /* Increase font sizes for print view */
+            .print-text {
+              font-size: 9px !important;
+            }
+            .print-item-text {
+              font-size: 9px !important;
+            }
+            h3 {
+              font-size: 16px !important;
+            }
+            .print-header-text {
+              font-size: 12px !important;
             }
           }
           
@@ -508,7 +523,7 @@ function App() {
               </div>
             </div>
 
-            <div className="mt-2 flex justify-between items-center">
+            <div className="mt-2 ml-2  mr-2 flex justify-between items-center">
               <div className="text-[#8B4513] font-bold text-xs">
                 Selected Items: {selectedItems.size}
               </div>
@@ -528,23 +543,23 @@ function App() {
               </div>
             </div>
 
-            <div className="mt-2 text-[#8B4513] text-[8px] text-center border-t-2 border-[#8B4513] pt-1">
-              <p>
-                बुकिंग की पुष्टि के समय कुल राशि का 25% एडवांस भुगतान करना होगा।
-                विवाह की तिथि से 15 दिन पूर्व कुल राशि का
-              </p>
-              <p>
-                60% भुगतान करना होगा। विवाह के दिन शेष 15% राशि का भुगतान करना
-                होगा।
-              </p>
-              <p className="mt-1">
-                कृपया इस समझौते को स्वीकार करने के लिए हस्ताक्षर करें।       
-              </p>
-              <div className="flex justify-end mt-1 pr-8">
-                <p>हस्ताक्षर ______________________</p>
+            <div className="mt-2 text-[#8B4513] text-[8px] text-center border-t-2 border-[#8B4513] pt-0.5 print-text">
+                <p>
+                  बुकिंग की पुष्टि के समय कुल राशि का 25% एडवांस भुगतान करना होगा।
+                  विवाह की तिथि से 15 दिन पूर्व कुल राशि का
+                </p>
+                <p>
+                  60% भुगतान करना होगा। विवाह के दिन शेष 15% राशि का भुगतान करना
+                  होगा।
+                </p>
+                <p className="mt-0.5">
+                  कृपया इस समझौते को स्वीकार करने के लिए हस्ताक्षर करें।       
+                </p>
+                <div className="flex justify-end mt-0.5 pr-8">
+                  <p>हस्ताक्षर ______________________</p>
+                </div>
+                <p className="font-bold mt-0.5">धन्यवाद!</p>
               </div>
-              <p className="font-bold mt-1">धन्यवाद!</p>
-            </div>
           </div>
         </div>
       </div>
@@ -556,12 +571,12 @@ function App() {
             <div className="flex-1 flex flex-col overflow-hidden">
               <div className="flex justify-between mt-[150px] mb-2">
                 <div className="flex items-center">
-                  <span className="text-[#8B4513] font-bold mr-2 text-xs">NAME:</span>
-                  <span className="border-b-2 border-[#8B4513] bg-transparent px-2 w-48 text-xs">{name}</span>
+                  <span className="text-[#8B4513] font-bold mr-2 print-header-text">NAME:</span>
+                  <span className="border-b-2 border-[#8B4513] bg-transparent px-2 w-48 print-header-text">{name}</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-[#8B4513] font-bold mr-2 text-xs">DATE:</span>
-                  <span className="border-b-2 border-[#8B4513] bg-transparent px-2 w-32 text-xs">{date}</span>
+                  <span className="text-[#8B4513] font-bold mr-2 print-header-text">DATE:</span>
+                  <span className="border-b-2 border-[#8B4513] bg-transparent px-2 w-32 print-header-text">{date}</span>
                 </div>
               </div>
 
