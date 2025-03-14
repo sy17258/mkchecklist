@@ -284,6 +284,9 @@ function App() {
             body {
               margin: 0;
               padding: 0;
+              width: 100%;
+              height: 100%;
+              overflow: hidden; /* Prevent overflow to next page */
             }
             .no-print {
               display: none !important;
@@ -292,8 +295,21 @@ function App() {
               display: block !important;
             }
             @page {
-              size: A4;
+              size: A4 portrait;
               margin: 0;
+              orphans: 0;
+              widows: 0;
+            }
+            /* Add these properties to force background printing */
+            * {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+              color-adjust: exact !important;
+            }
+            /* Prevent page breaks inside elements */
+            .a4-container, .a4-content {
+              page-break-inside: avoid;
+              break-inside: avoid;
             }
           }
           
@@ -534,7 +550,7 @@ function App() {
       </div>
 
       {/* Print view - only visible when printing */}
-      <div className="hidden print:block print-only">
+      <div className="hidden print:block print-only print-container">
         <div className="a4-container">
           <div className="a4-content bg-[url('./assets/checklist1.png')] bg-no-repeat bg-cover">
             <div className="flex-1 flex flex-col overflow-hidden">
